@@ -1,17 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+
+import './index.css';
+import 'antd/dist/antd.css';
+
+import {MainLayout} from "./Layout/Layout";
+import {Register} from "./Pages/Register";
+
+// тут добавлю роутер для перемещения между служебными страницами типо регистрация, вход, добавления проекта и дашборд
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Router>
+        <Switch>
+            <Route path="/" exact component={Register}/>
+            <Route path="/dashboard" exact component={MainLayout}/>
+
+        </Switch>
+    </Router>,
+    document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
