@@ -1,6 +1,6 @@
 import React from "react";
-import { Statistic, Card, Row, Col } from 'antd';
-import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
+import { Statistic, Card } from 'antd';
+import { ArrowUpOutlined } from '@ant-design/icons';
 
 export const StatsCounters = () =>{
     return <div className="site-statistic-demo-card">

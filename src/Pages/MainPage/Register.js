@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Form, Input, Button, Checkbox } from 'antd';
 const layout = {
   labelCol: {
@@ -36,7 +34,7 @@ export const Register = () => {
       onFinishFailed={onFinishFailed}
     >
       <Form.Item
-        label="Username"
+        label="Логин"
         name="username"
         rules={[
           {
@@ -49,7 +47,7 @@ export const Register = () => {
       </Form.Item>
 
       <Form.Item
-        label="Password"
+        label="Пароль"
         name="password"
         rules={[
           {
@@ -66,8 +64,8 @@ export const Register = () => {
       </Form.Item>
 
       <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
-          Submit
+        <Button type="primary" htmlType="Войти">
+          Войти
         </Button>
       </Form.Item>
     </Form>

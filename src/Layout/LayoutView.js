@@ -3,15 +3,15 @@ import {Layout, Menu, Row, Col} from "antd";
 import {PieChartOutlined} from "@ant-design/icons";
 
 const {Header, Content, Footer, Sider} = Layout;
-const {SubMenu} = Menu;
+// const {SubMenu} = Menu;
 
 
-export const LayoutViev = (props) => {
+export const LayoutView = (props) => {
 
     return <Layout style={{minHeight: '100vh'}}>
 
         <Sider collapsible collapsed={props.isCollapsed} onCollapse={props.onCollapse}>
-            <div className="logo"/>
+            <div className="logo"><img src='https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'/></div>
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" onSelect={props.onSelect}>
                 <Menu.Item key="1" icon={<PieChartOutlined/>}>
                     Статистика
