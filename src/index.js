@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Login} from "./Pages/userLogin/LoginContainer";
 
 import {
     BrowserRouter as Router,
@@ -10,14 +11,17 @@ import {
 import './index.css';
 import 'antd/dist/antd.css';
 
-import {MainLayout} from "./Layout/Layout";
-import {MainPage} from "./Pages/MainPage/MainPage";
+import {DashboardMain} from "./Pages/dashboardMain/dashContainer";
+import {DashProjectList} from "./Pages/dashprojectlist/DashProjectList";
+
+
 
 ReactDOM.render(
     <Router>
         <Switch>
-            <Route path="/" exact component={MainPage}/>
-            <Route path="/dashboard" exact component={MainLayout}/>
+            <Route path="/" exact component={DashProjectList}/>
+            <Route path="/dashboard" exact component={DashboardMain}/>
+            <Route path="/login" exact component={Login}/>
         </Switch>
     </Router>,
     document.getElementById('root')
