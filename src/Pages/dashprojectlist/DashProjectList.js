@@ -6,7 +6,7 @@ import {
   Redirect
 } from "react-router-dom";
 export const DashProjectList = () => {
-    let isLogged = localStorage.getItem('isLogged')
+    let isLogged = sessionStorage.getItem('isLogged')
     return (<>{isLogged ?
         <MainLayout>
             <ProjectList/>

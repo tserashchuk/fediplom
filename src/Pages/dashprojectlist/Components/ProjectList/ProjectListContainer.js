@@ -1,37 +1,25 @@
-import React from "react";
-import {Collapse} from 'antd';
-import {GlobalStat} from "../GlobalStat/GlobalStatContainer";
-import {Button} from "antd";
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {ProjectListView} from "./ProjectListView";
+import axios from "axios";
+import {useHistory} from "react-router-dom";
 
-const {Panel} = Collapse;
 
 export const ProjectList = () => {
+    const history = useHistory()
+    const [data, setData] = useState([])
 
-    function callback(key) {
-        console.log(key);
+    const projectGet = async () => {
+        let postData = await axios.post('http://127.0.0.1:5000/api/projects/get', {}, {headers: {'Authorization': sessionStorage.getItem('secret')}})
+        setData(postData.data)
+    }
+    const deleteProject = async (projid) => {
+        await axios.post('http://127.0.0.1:5000/api/project/delete', {id: projid}, {headers: {'Authorization': sessionStorage.getItem('secret')}})
+        projectGet()
     }
 
-    return (
-        <Collapse onChange={callback}>
-            <Panel header="Электроник" key="1">
-                <GlobalStat/>
-                <Button type="primary">
-                    <Link to="/dashboard">Подробнее</Link>
-                </Button>
-            </Panel>
-            <Panel header="Panasonic" key="2">
-                <GlobalStat/>
-                <Button type="primary">
-                    <Link to="/dashboard">Подробнее</Link>
-                </Button>
-            </Panel>
-            <Panel header="Super Sonic" key="3">
-                <GlobalStat/>
-                <Button type="primary">
-                    <Link to="/dashboard">Подробнее</Link>
-                </Button>
-            </Panel>
-        </Collapse>
-    )
+    useEffect(() => {
+        projectGet()
+    }, [])
+
+    return (<ProjectListView data={data} deleteProject={deleteProject}/>)
 }

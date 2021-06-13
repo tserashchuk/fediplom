@@ -2,7 +2,6 @@ import React from "react";
 import './assets/style.css'
 
 export const GlobalStat = () => {
-
     return (
         <>
             <div className="small_informers">

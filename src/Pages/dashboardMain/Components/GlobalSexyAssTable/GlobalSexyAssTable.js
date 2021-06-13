@@ -1,5 +1,5 @@
 import React from "react";
-import {Table, Switch, Radio, Form, Space} from 'antd';
+import {Table, Space} from 'antd';
 import {DownOutlined} from '@ant-design/icons';
 
 const columns = [
